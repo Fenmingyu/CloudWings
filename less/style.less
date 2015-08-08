@@ -1,0 +1,642 @@
+@import "env";
+@import "color";
+@import "variables";
+
+/*==============================================
+ *  Global style
+===============================================*/
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+
+form {
+  .button, .button.activated {
+    color: @button-color !important;
+    background-color: @dark-blue !important;
+    border: none !important;
+    padding: 10px;
+    border-radius: @radius;
+  }
+  .title, .tips {
+    color: @white;
+  }
+}
+
+.bar .button.back-button {
+  width: 30px;
+  font-size: 24px;
+}
+
+.md-box input::-webkit-input-placeholder, .md-box textarea::-webkit-input-placeholder {
+  color: @light-blue;
+}
+
+.md-box .scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.md-box .scroll {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.button {
+  color: @button-color;
+}
+
+.scroll-bar-indicator {
+  display: none;
+}
+
+.padding10 {
+  padding-top: 10px;
+}
+
+.padding20 {
+  padding-top: 20px;
+}
+
+.padding30 {
+  padding-top: 30px;
+}
+
+.padding40 {
+  padding-top: 40px;
+}
+
+.padding50 {
+  padding-top: 50px;
+}
+
+.bar.bar-positive {
+  background-color: @light-blue !important;
+  border: none;
+}
+
+.scroll-bar-indicator {
+  display: none;
+}
+
+.button.custom-back {
+  border: none;
+  background: none;
+  color: @white;
+  font-size: 30px;
+}
+
+.nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
+  top: 0;
+}
+
+.pane[hide-nav-bar="true"] .has-tabs-top {
+  top: 49px
+}
+
+.item-input .icon {
+  padding-right: 15px;
+  font-size: 30px;
+  min-width: 4 * @block-space;
+  color: @light-blue;
+}
+
+/*==============================================
+ *  Right Side-menu style
+===============================================*/
+.side-menu.right {
+  .bar-header {
+    background: url(@login-bg-image) no-repeat 100% 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    height: 100px;
+  }
+  .has-header {
+    top: 100px;
+  }
+}
+
+/*==============================================
+ *  Home page
+===============================================*/
+.home-view {
+  padding-bottom: @block-space * 5;
+  .nav-bar-title img {
+    width: 100%;
+    height: 100%;
+  }
+  .scroll {
+    height: 100%;
+  }
+  .scroll-content {
+    background-color: @white !important;
+    padding: @block-space;
+    padding-bottom: 0;
+  }
+  .gradient-box {
+    position: relative;
+    height: 100%;
+
+    -moz-box-shadow: 0px 2px 7px 2px #AFAFAF;
+    -webkit-box-shadow: 0px 2px 7px 2px #AFAFAF;
+    box-shadow: 0px 2px 7px 2px #AFAFAF;
+    background-color: #ffffff;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ffffff, endColorstr=#C5C5C5);
+    background-image: -moz-linear-gradient(top, #ffffff 0%, #C5C5C5 100%);
+    background-image: -webkit-linear-gradient(top, #ffffff 0%, #C5C5C5 100%);
+    background-image: -ms-linear-gradient(top, #ffffff 0%, #C5C5C5 100%);
+    background-image: linear-gradient(top, #ffffff 0%, #C5C5C5 100%);
+    background-image: -o-linear-gradient(top, #ffffff 0%, #C5C5C5 100%);
+    background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0%, #ffffff), color-stop(100%, #C5C5C5));
+  }
+  .part-box {
+    height: 25%;
+    padding-bottom: @block-space;
+  }
+  .part-box h3, h4 {
+    position: absolute;
+    bottom: 0;
+    left: @block-space;
+    color: @white !important;
+  }
+}
+
+.home-tabs {
+  .tab-nav.tabs {
+    background-color: @white !important;
+    border-bottom: 0 !important;
+    border-top: @border-thin solid @lime-black !important;
+    .tab-item {
+      color: @text-color !important;
+    }
+    .tab-item.activated, .tab-item.active, .tab-item.tab-item-active {
+      color: @light-blue !important;
+    }
+  }
+  .tab-item .badge.badge-assertive {
+    opacity: 1 !important;
+    background-color: @badge-color !important;
+  }
+}
+
+/*==============================================
+ *  Login page
+===============================================*/
+.login-view {
+  background-color: @light-blue;
+  .row {
+    padding: @block-space !important;
+  }
+
+  .login-img-wrap {
+    text-align: center;
+    width: 100%;
+    height: 120px;
+    background: url(@login-bg-image) no-repeat 100% 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .forgot-lnk, .signup-lnk {
+    color: @button-color;
+    padding: 0 @block-space;
+    font-size: 1.2em;
+    width: 100%;
+  }
+  .forgot-lnk {
+    text-align: right;
+  }
+  .signup-lnk {
+    text-align: center;
+  }
+  .login-form {
+    font-family: @font-family;
+
+    .sel-lang-wrap {
+      margin: 15px auto;
+      width: 200px;
+    }
+    input::-webkit-input-placeholder {
+      color: @light-blue;
+    }
+    .list {
+      border-radius: @radius;
+      font-weight: bold;
+      padding-bottom: 0;
+    }
+    .sel-lang {
+      background-color: white;
+      padding: 0 2px;
+      border-radius: @radius;
+      .button-outline {
+        border-color: @white !important;
+        border-width: 2px;
+        color: @light-blue !important;
+      }
+      .item:first-child {
+        border-top-left-radius: @radius !important;
+        border-bottom-left-radius: @radius !important;
+      }
+      .item:last-child {
+        border-top-right-radius: @radius !important;
+        border-bottom-right-radius: @radius !important;
+      }
+    }
+  }
+
+  .info-wrap {
+    border-radius: @radius;
+    .item {
+      padding: 6px 0 6px 32px;
+      border-radius: 0;
+    }
+    .item:first-child {
+      border-top-left-radius: @radius !important;
+      border-top-right-radius: @radius !important;
+    }
+    .item:last-child {
+      border-bottom-left-radius: @radius !important;
+      border-bottom-right-radius: @radius !important;
+    }
+    .placeholder-icon {
+      width: 36px;
+      font-size: 30px;
+      color: @light-blue;
+    }
+    .item:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .item-radio .item-content {
+    padding: 0px;
+    background: none;
+  }
+  .button {
+    color: @button-color;
+  }
+  .button-bar .button {
+    min-height: 0;
+    line-height: 30px;
+  }
+  .button-bar > .item-radio.button {
+    padding: 0;
+    border: 2px solid @white !important;
+    background-color: @white !important;
+  }
+  .item-radio input:checked ~ .item-content {
+    /* style the item content when its checked */
+    border-color: @light-blue;
+    background-color: @light-blue;
+    color: @white;
+  }
+
+  .item-radio .radio-icon {
+    display: none;
+  }
+
+  .button.button-positive.button-outline.active, .button.button-positive.button-outline.activated {
+    background-color: @light-blue;
+    box-shadow: none;
+    color: @white;
+    border-radius: 0;
+  }
+  .card .item:first-child .item-content, .list-inset .item:first-child .item-content, .padding > .list .item:first-child .item-content {
+    border-top-left-radius: @radius-inner;
+    border-bottom-left-radius: @radius-inner;
+  }
+  .card .item:last-child .item-content, .list-inset .item:last-child .item-content, .padding > .list .item:last-child .item-content {
+    border-top-right-radius: @radius-inner;
+    border-bottom-right-radius: @radius-inner;
+  }
+  .card .item:last-child, .list-inset .item:last-child {
+    margin-bottom: 1px;
+  }
+
+}
+
+/*==============================================
+ *  SignUp page
+===============================================*/
+.signup-view {
+  background-color: @light-blue;
+  select {
+    max-width: 80px;
+    margin-right: 10px;
+    border: none;
+    color: @light-blue;
+  }
+  .list {
+    border-radius: @radius;
+  }
+  .list-inset .item:first-child {
+    border-top-left-radius: @radius;
+    border-top-right-radius: @radius;
+  }
+  .list-inset .item:last-child {
+    border-bottom-left-radius: @radius;
+    border-bottom-right-radius: @radius;
+  }
+  .item.item-input {
+    padding-left: 2 * @block-space;
+  }
+  .phone-input {
+    button.button {
+      min-width: 120px;
+      height: 34px;
+      text-align: center;
+      border: none;
+      background-color: @white !important;
+      color: @light-blue !important;
+      position: relative;
+      margin-right: @block-space;
+      span {
+        position: absolute;
+        top: 2px;
+        width: 50px;
+        left: 35px;
+        padding: 0;
+        color: @light-blue !important;
+      }
+      img {
+        width: 30px;
+        height: 20px;
+        position: absolute;
+        top: 15px;
+        left: 5px;
+        box-shadow: 0 1px 2px 1px rgb(187, 187, 187);
+      }
+      .icon {
+        width: 20px;
+        font-size: 20px;
+        position: absolute;
+        top: 3px;
+        right: 5px;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.country-view {
+  .item {
+    img {
+      width: 40px !important;
+      height: 25px !important;
+    }
+    span.country_name {
+
+    }
+    span.dial_code {
+      float: right;
+    }
+  }
+}
+
+/*==============================================
+ *  SignUp page
+===============================================*/
+.intro-view {
+  background-color: @light-blue;
+  padding: @block-space;
+  padding-bottom: 100px;
+  .slider {
+    height: 100%;
+  }
+  .slider-slide {
+    padding-top: 80px;
+    color: @white;
+    text-align: center;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    h3, h5 {
+      color: @white !important;
+    }
+  }
+  .button {
+    background-color: @dark-blue;
+    color: @white;
+    width: 200px;
+    margin: 0 auto;
+  }
+}
+
+/*==============================================
+ *  Phone Validation page
+===============================================*/
+.verify-view {
+  background-color: @light-blue;
+  h2, h3, h5, p {
+    color: @white;
+  }
+  .card, .list-inset {
+    border-radius: @radius;
+  }
+}
+
+/*==============================================
+ *  Recovery Password page
+===============================================*/
+
+.recovery-view {
+  .verify-view
+}
+
+/*==============================================
+ *  Calendar page
+===============================================*/
+.calendar-view {
+  .wrapp {
+    width: 450px;
+    height: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  flex-calendar {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.3);
+  }
+  .flex-calendar {
+    .month {
+      height: 120px;
+      line-height: 60px;
+      padding: 30px 0;
+
+      background: #007ec2;
+      /* Old Browsers */
+      background: -moz-linear-gradient(top, #007ec2 0%, #0abef5 50%, #007ec2 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, #007ec2), color-stop(50%, #0abef5), color-stop(100%, #007ec2));
+      /* Chrome, Safari4+ */
+      background: -webkit-linear-gradient(top, #007ec2 0%, #0abef5 50%, #007ec2 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #007ec2 0%, #0abef5 50%, #007ec2 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #007ec2 0%, #0abef5 50%, #007ec2 100%);
+      /* IE 10+ */
+      background: linear-gradient(to bottom, #007ec2 0%, #0abef5 50%, #007ec2 100%);
+      /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007ec2', endColorstr='#007ec2', GradientType=0);
+      /* IE6-9 */
+    }
+    .week {
+      background-color: @white;
+      color: @light-blue;
+      line-height: 30px;
+      padding: 10px 0;
+    }
+    .days {
+      .day {
+        color: @black;
+        font-weight: 600;
+        min-height: 40px;
+        line-height: 40px;
+      }
+      .day.disabled .number {
+        background-image: none;
+      }
+      .day.selected .number {
+        background-color: @light-blue;
+        border-radius: 2px;
+        background-image: none;
+      }
+      .day.event {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+
+        .number {
+          width: 40px;
+          height: 40px;
+          border-radius: 3px;
+          line-height: 40px;
+          color: @blue;
+          border: 2px solid rgb(66, 149, 230);
+        }
+      }
+      .day.event:before {
+        background: none;
+      }
+
+    }
+  }
+  .button-wrap {
+    margin: 5px;
+  }
+  .button.button-block {
+    padding: 0;
+    background-color: @white;
+    color: @light-blue;
+    border-color: @light-blue;
+    border-width: 2px;
+    margin: 0;
+    line-height: 24px;
+  }
+  .set-button {
+    border-color: @white;
+    background-color: @light-blue !important;
+    color: @white !important;
+  }
+  .row {
+    background-color: @white-bg;
+    padding: 10px 0;
+    .button.button-block.active {
+      background-color: @light-blue;
+      color: @white;
+    }
+  }
+}
+
+/*=================================================
+ * Search style
+ *==================================================*/
+.search-view{
+  i.icon{
+    width: 30px;
+    font-size: 20px;
+  }
+  input[type=search]{
+    background: none;
+    width: 100%;
+  }
+}
+.searchBar {
+  color: #fff;
+  margin: 0 !important;
+  padding: 0;
+}
+.searchBar .icon {
+  font-size: 27px;
+  line-height: 1.2;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+.searchBar .searchTxt {
+  border-bottom: 1px solid #fff;
+  left: 55px;
+  width: calc(100% - 100px);
+  position: fixed;
+  height: calc(100% - 10px);
+}
+.searchBar.numicons2 .searchTxt {
+  width: calc(100% - 135px);
+}
+.searchBar .searchTxt > .bgdiv {
+  background-color: #aaa;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.3;
+}
+.searchBar .searchTxt > .bgtxt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.searchBar .searchTxt input {
+  background-color: inherit;
+  color: #fff;
+  padding-left: 5px;
+  padding-right:5px;
+}

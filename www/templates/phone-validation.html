@@ -1,0 +1,21 @@
+<ion-view view-title="Mobile Phone Validation" class="md-box verify-view" hide-nav-bar="true">
+    <ion-content class="padding">
+        <form class="list verify-form" ng-show="showForm">
+            <h3>Mobile Phone Verification</h3>
+
+            <div class="padding20">
+                <p>Tap on the button below to receive a verification code</p>
+                <button class="button button-block" ng-click="send_sms()">SEND SMS WITH THE CODE</button>
+            </div>
+            <div class="list list-inset info-wrap">
+                <label class="item item-input">
+                    <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+                    <input type="text" placeholder="Verification Code" ng-model="data.smscode">
+                </label>
+            </div>
+            <div class="padding50">
+                <button class="button button-block submit-btn" ng-click="verify()">VERIFY CODE</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

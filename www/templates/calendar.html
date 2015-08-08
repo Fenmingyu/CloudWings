@@ -1,0 +1,18 @@
+<ion-view title="Date and Time" class="calendar-view">
+    <ion-content>
+        <flex-calendar options="options" events="events"></flex-calendar>
+        <div class="row">
+            <div class="col" ng-repeat="item in timeButtons">
+                <button ng-class="{'active': isActive('item' + $index)}"
+                        ng-click="setActive('item' + $index,item,$index)" class="button button-block">
+                    {{ item.time }} {{item.period}}
+                </button>
+            </div>
+        </div>
+        <div class="button-wrap">
+            <button class="button button-block set-button" ng-click="updateTime()">
+                SET TO Feb 8th,2015 at 11:00 am
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,46 @@
+<ion-view title="SignUp" class="signup-view md-box" hide-nav-bar="true">
+    <ion-header-bar align-title="left" class="bar-positive">
+        <div class="buttons">
+            <button class="button custom-back" ng-click="showMenu()">
+                <i class="ion-ios-arrow-back"></i>
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="padding" scroll="true" has-bouncing="false">
+        <form class="list verify-form" ng-show="showForm">
+            <h2 class="title">Sign Up</h2>
+
+            <div class="list list-inset info-wrap">
+                <label class="item item-input">
+                    <i class="icon ion-ios-person-outline placeholder-icon"></i>
+                    <input type="text" placeholder="Name" ng-model="data.name">
+                </label>
+                <label class="item item-input">
+                    <i class="icon ion-ios-email-outline placeholder-icon"></i>
+                    <input type="text" placeholder="Email" ng-model="data.email">
+                </label>
+
+                <div class="item item-input phone-input">
+                    <i class="icon ion-ios-telephone-outline placeholder-icon"></i>
+                    <button class="button button-assertive" ng-init="countries[41]" ng-click="openCountryModal()">
+                        <span class="input-label" ng-model="country.dial_code">{{ country.dial_code }}</span>
+                        <img ng-src="{{ country.icon }}" ng-model="country.icon">
+                        <i class="icon ion-ios-arrow-down"></i>
+                    </button>
+                    <input type="text" placeholder="Mobile phone" ng-model="data.phone">
+                </div>
+                <label class="item item-input">
+                    <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+                    <input type="text" placeholder="Password" ng-model="data.password">
+                </label>
+            </div>
+            <div class="padding50">
+                <p class="tips">By joining you accept our <strong>Terms of service</strong></p>
+                <button class="button button-block submit-btn" ng-click="signup()">JOIN</button>
+            </div>
+            <div>
+                <p class="tips">Already have an account? <strong>Sign In</strong></p>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

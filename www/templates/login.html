@@ -1,0 +1,42 @@
+<ion-view title="Login" class="login-view md-box" hide-nav-bar="true">
+    <ion-content has-bouncing="false">
+        <div class="login-img-wrap"></div>
+        <form class="list login-form" ng-show="showForm">
+            <div class="list list-inset sel-lang-wrap">
+                <div class="button-bar sel-lang">
+                    <ion-radio ng-repeat="item in regions"
+                               ng-value="item.value"
+                               ng-model="data.language"
+                               ng-change="updateLanguage(item)"
+                               class="button button-positive button-outline"
+                               name="radio1">
+                        {{ item.value }}
+                    </ion-radio>
+                </div>
+            </div>
+            <div class="list list-inset info-wrap">
+                <label class="item item-input">
+                    <i class="icon ion-ios-person-outline placeholder-icon"></i>
+                    <input type="text" placeholder="{{langs.signin_input_account[data.country_code]}}"
+                           ng-model="data.account">
+                </label>
+                <label class="item item-input">
+                    <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+                    <input type="text" placeholder="{{langs.signin_input_password[data.country_code]}}"
+                           ng-model="data.password">
+                </label>
+            </div>
+            <div class="row">
+                <p class="forgot-lnk" ng-click="resetpwd()">{{langs.signin_input_resetpwd[data.country_code]}}</p>
+            </div>
+            <div class="row">
+                <button class="button button-block submit-btn" ng-click="submit()">
+                    {{langs.signin_input_login[data.country_code]}}
+                </button>
+            </div>
+            <div class="row">
+                <div class="col signup-lnk" ng-click="signup()">{{langs.signin_input_signup[data.country_code]}}</div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

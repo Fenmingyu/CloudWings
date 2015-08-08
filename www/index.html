@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html ng-app="ionicApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>Tabs Example</title>
+
+    <!-- ionic/angularjs js -->
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <!-- ionic cover(no push) side menu -->
+    <link href="lib/ionic-ion-drawer-master/ionic.contrib.drawer.css" rel="stylesheet">
+    <!-- Calendar directive --->
+    <link href="lib/flex-calendar/dist/flex-calendar.css" rel="stylesheet">
+    <!-- custom app's style -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    <!-- ionic cover(no push) side menu -->
+    <script src="lib/ionic-ion-drawer-master/ionic.contrib.drawer.js"></script>
+    <!-- Calendar directive --->
+    <script type="text/javascript" src="lib/angular-translate/angular-translate.min.js"></script>
+    <script src="lib/flex-calendar/dist/flex-calendar.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+</head>
+
+<body>
+
+<ion-side-menus>
+
+    <ion-side-menu-content ng-controller="NavCtrl">
+        <ion-nav-bar class="bar-positive">
+            <ion-nav-back-button class="button-clear"><i class="ion-ios-arrow-back"></i>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-ios-filing-outline" ng-click="showMenu()">
+                </button>
+            </ion-nav-buttons>
+
+            <ion-nav-buttons side="right">
+                <button class="button button-icon button-clear ion-navicon" ng-click="toggleDrawer()">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view animation="slide-left-right"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left" class="side-menu">
+        <ion-header-bar class="bar bar-header bar-assertive">
+            <h1 class="title">Left Menu</h1>
+        </ion-header-bar>
+        <ion-content has-header="true">
+            <ul class="list">
+                <li>
+                    <a class="item" menu-close nav-clear href="#/tab/home">Home</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/login">LogIn</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/signup">SignUp</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/intro-slides">IntroSlides</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/phone-validation">PhoneValidation</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/recover-password">RecoverPassword</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/calendar">Calendar</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/search">Search</a>
+                </li>
+                <li>
+                    <div class="item item-divider"> Default views</div>
+                </li>
+                <li>
+                    <a class="item" menu-close href="#/tab/facts">Facts</a>
+                </li>
+                <li>
+                    <a class="item" menu-close href="#/tab/facts2">More Facts</a>
+                </li>
+            </ul>
+        </ion-content>
+    </ion-side-menu>
+
+    <drawer side="right" class="side-menu">
+        <ion-header-bar class="bar bar-header" ng-click="toggleDrawer()"></ion-header-bar>
+        <ion-content>
+            <ul class="list">
+                <li>
+                    <a class="item" menu-close nav-clear href="#/tab/home" ng-click="toggleDrawer()">Home</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/jet-charter" ng-click="toggleDrawer()">Jet Charter</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/helicopter-charter" ng-click="toggleDrawer()">Helicopter
+                        Charter</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/empty-legs" ng-click="toggleDrawer()">Empty Legs</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/aircraft-market" ng-click="toggleDrawer()">Aircraft
+                        Market</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/aircraft-fleet" ng-click="toggleDrawer()">Aircraft
+                        Fleet</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/tab/message" ng-click="toggleDrawer()">Messages</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/tab/booking" ng-click="toggleDrawer()">Bookings</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/tab/about" ng-click="toggleDrawer()">About Us</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/settings" ng-click="toggleDrawer()">Settings</a>
+                </li>
+                <li>
+                    <a class="item" menu-close nav-clear href="#/logout" ng-click="toggleDrawer()">Logout</a>
+                </li>
+
+            </ul>
+        </ion-content>
+    </drawer>
+
+</ion-side-menus>
+
+
+</body>
+</html>
