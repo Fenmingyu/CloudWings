@@ -3,3 +3,6 @@
  */
 var test = '';
 test = 100;
+function test(){
+    console.log('this is test github!');
+}
