@@ -1,0 +1,600 @@
+@charset "UTF-8";
+/*==============================================
+ *  Global style
+===============================================*/
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+form .button,
+form .button.activated {
+  color: #ffffff !important;
+  background-color: #1182c2 !important;
+  border: none !important;
+  padding: 10px;
+  border-radius: 8px;
+}
+form .title,
+form .tips {
+  color: #ffffff;
+}
+.bar .button.back-button {
+  width: 30px;
+  font-size: 24px;
+}
+.md-box input::-webkit-input-placeholder,
+.md-box textarea::-webkit-input-placeholder {
+  color: #149eeb;
+}
+.md-box .scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+.md-box .scroll {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.button {
+  color: #ffffff;
+}
+.scroll-bar-indicator {
+  display: none;
+}
+.padding10 {
+  padding-top: 10px;
+}
+.padding20 {
+  padding-top: 20px;
+}
+.padding30 {
+  padding-top: 30px;
+}
+.padding40 {
+  padding-top: 40px;
+}
+.padding50 {
+  padding-top: 50px;
+}
+.bar.bar-positive {
+  background-color: #149eeb !important;
+  border: none;
+}
+.scroll-bar-indicator {
+  display: none;
+}
+.button.custom-back {
+  border: none;
+  background: none;
+  color: #ffffff;
+  font-size: 30px;
+}
+.nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
+  top: 0;
+}
+.pane[hide-nav-bar="true"] .has-tabs-top {
+  top: 49px;
+}
+.item-input .icon {
+  padding-right: 15px;
+  font-size: 30px;
+  min-width: 40px;
+  color: #149eeb;
+}
+/*==============================================
+ *  Right Side-menu style
+===============================================*/
+.side-menu.right .bar-header {
+  background: url("../img/login-bg.png") no-repeat 100% 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  width: 100%;
+  height: 100px;
+}
+.side-menu.right .has-header {
+  top: 100px;
+}
+/*==============================================
+ *  Home page
+===============================================*/
+.home-view {
+  padding-bottom: 50px;
+}
+.home-view .nav-bar-title img {
+  width: 100%;
+  height: 100%;
+}
+.home-view .scroll {
+  height: 100%;
+}
+.home-view .scroll-content {
+  background-color: #ffffff !important;
+  padding: 10px;
+  padding-bottom: 0;
+}
+.home-view .gradient-box {
+  position: relative;
+  height: 100%;
+  -moz-box-shadow: 0px 2px 7px 2px #AFAFAF;
+  -webkit-box-shadow: 0px 2px 7px 2px #AFAFAF;
+  box-shadow: 0px 2px 7px 2px #AFAFAF;
+  background-color: #ffffff;
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ffffff, endColorstr=#c5c5c5);
+  background-image: -moz-linear-gradient(top, #ffffff 0%, #c5c5c5 100%);
+  background-image: -webkit-linear-gradient(top, #ffffff 0%, #c5c5c5 100%);
+  background-image: -ms-linear-gradient(top, #ffffff 0%, #c5c5c5 100%);
+  background-image: linear-gradient(top, #ffffff 0%, #c5c5c5 100%);
+  background-image: -o-linear-gradient(top, #ffffff 0%, #c5c5c5 100%);
+  background-image: -webkit-gradient(linear, right top, right bottom, color-stop(0%, #ffffff), color-stop(100%, #c5c5c5));
+}
+.home-view .part-box {
+  height: 25%;
+  padding-bottom: 10px;
+}
+.home-view .part-box h3,
+.home-view h4 {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  color: #ffffff !important;
+}
+.home-tabs .tab-nav.tabs {
+  background-color: #ffffff !important;
+  border-bottom: 0 !important;
+  border-top: 1px solid #b3b3b3 !important;
+}
+.home-tabs .tab-nav.tabs .tab-item {
+  color: #3e3e3e !important;
+}
+.home-tabs .tab-nav.tabs .tab-item.activated,
+.home-tabs .tab-nav.tabs .tab-item.active,
+.home-tabs .tab-nav.tabs .tab-item.tab-item-active {
+  color: #149eeb !important;
+}
+.home-tabs .tab-item .badge.badge-assertive {
+  opacity: 1 !important;
+  background-color: #ff1200 !important;
+}
+/*==============================================
+ *  Login page
+===============================================*/
+.login-view {
+  background-color: #149eeb;
+}
+.login-view .row {
+  padding: 10px !important;
+}
+.login-view .login-img-wrap {
+  text-align: center;
+  width: 100%;
+  height: 120px;
+  background: url("../img/login-bg.png") no-repeat 100% 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.login-view .forgot-lnk,
+.login-view .signup-lnk {
+  color: #ffffff;
+  padding: 0 10px;
+  font-size: 1.2em;
+  width: 100%;
+}
+.login-view .forgot-lnk {
+  text-align: right;
+}
+.login-view .signup-lnk {
+  text-align: center;
+}
+.login-view .login-form {
+  font-family: "宋体";
+}
+.login-view .login-form .sel-lang-wrap {
+  margin: 15px auto;
+  width: 200px;
+}
+.login-view .login-form input::-webkit-input-placeholder {
+  color: #149eeb;
+}
+.login-view .login-form .list {
+  border-radius: 8px;
+  font-weight: bold;
+  padding-bottom: 0;
+}
+.login-view .login-form .sel-lang {
+  background-color: white;
+  padding: 0 2px;
+  border-radius: 8px;
+}
+.login-view .login-form .sel-lang .button-outline {
+  border-color: #ffffff !important;
+  border-width: 2px;
+  color: #149eeb !important;
+}
+.login-view .login-form .sel-lang .item:first-child {
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+}
+.login-view .login-form .sel-lang .item:last-child {
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+.login-view .info-wrap {
+  border-radius: 8px;
+}
+.login-view .info-wrap .item {
+  padding: 6px 0 6px 32px;
+  border-radius: 0;
+}
+.login-view .info-wrap .item:first-child {
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+}
+.login-view .info-wrap .item:last-child {
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+.login-view .info-wrap .placeholder-icon {
+  width: 36px;
+  font-size: 30px;
+  color: #149eeb;
+}
+.login-view .info-wrap .item:last-child {
+  margin-bottom: 0 !important;
+}
+.login-view .item-radio .item-content {
+  padding: 0px;
+  background: none;
+}
+.login-view .button {
+  color: #ffffff;
+}
+.login-view .button-bar .button {
+  min-height: 0;
+  line-height: 30px;
+}
+.login-view .button-bar > .item-radio.button {
+  padding: 0;
+  border: 2px solid #ffffff !important;
+  background-color: #ffffff !important;
+}
+.login-view .item-radio input:checked ~ .item-content {
+  /* style the item content when its checked */
+  border-color: #149eeb;
+  background-color: #149eeb;
+  color: #ffffff;
+}
+.login-view .item-radio .radio-icon {
+  display: none;
+}
+.login-view .button.button-positive.button-outline.active,
+.login-view .button.button-positive.button-outline.activated {
+  background-color: #149eeb;
+  box-shadow: none;
+  color: #ffffff;
+  border-radius: 0;
+}
+.login-view .card .item:first-child .item-content,
+.login-view .list-inset .item:first-child .item-content,
+.login-view .padding > .list .item:first-child .item-content {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.login-view .card .item:last-child .item-content,
+.login-view .list-inset .item:last-child .item-content,
+.login-view .padding > .list .item:last-child .item-content {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.login-view .card .item:last-child,
+.login-view .list-inset .item:last-child {
+  margin-bottom: 1px;
+}
+/*==============================================
+ *  SignUp page
+===============================================*/
+.signup-view {
+  background-color: #149eeb;
+}
+.signup-view select {
+  max-width: 80px;
+  margin-right: 10px;
+  border: none;
+  color: #149eeb;
+}
+.signup-view .list {
+  border-radius: 8px;
+}
+.signup-view .list-inset .item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.signup-view .list-inset .item:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.signup-view .item.item-input {
+  padding-left: 20px;
+}
+.signup-view .phone-input button.button {
+  min-width: 120px;
+  height: 34px;
+  text-align: center;
+  border: none;
+  background-color: #ffffff !important;
+  color: #149eeb !important;
+  position: relative;
+  margin-right: 10px;
+}
+.signup-view .phone-input button.button span {
+  position: absolute;
+  top: 2px;
+  width: 50px;
+  left: 35px;
+  padding: 0;
+  color: #149eeb !important;
+}
+.signup-view .phone-input button.button img {
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  left: 5px;
+  box-shadow: 0 1px 2px 1px #bbbbbb;
+}
+.signup-view .phone-input button.button .icon {
+  width: 20px;
+  font-size: 20px;
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 0;
+}
+.country-view .item img {
+  width: 40px !important;
+  height: 25px !important;
+}
+.country-view .item span.dial_code {
+  float: right;
+}
+/*==============================================
+ *  SignUp page
+===============================================*/
+.intro-view {
+  background-color: #149eeb;
+  padding: 10px;
+  padding-bottom: 100px;
+}
+.intro-view .slider {
+  height: 100%;
+}
+.intro-view .slider-slide {
+  padding-top: 80px;
+  color: #ffffff;
+  text-align: center;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
+.intro-view .slider-slide h3,
+.intro-view .slider-slide h5 {
+  color: #ffffff !important;
+}
+.intro-view .button {
+  background-color: #1182c2;
+  color: #ffffff;
+  width: 200px;
+  margin: 0 auto;
+}
+/*==============================================
+ *  Phone Validation page
+===============================================*/
+.verify-view {
+  background-color: #149eeb;
+}
+.verify-view h2,
+.verify-view h3,
+.verify-view h5,
+.verify-view p {
+  color: #ffffff;
+}
+.verify-view .card,
+.verify-view .list-inset {
+  border-radius: 8px;
+}
+/*==============================================
+ *  Recovery Password page
+===============================================*/
+.recovery-view {
+  background-color: #149eeb;
+}
+.recovery-view h2,
+.recovery-view h3,
+.recovery-view h5,
+.recovery-view p {
+  color: #ffffff;
+}
+.recovery-view .card,
+.recovery-view .list-inset {
+  border-radius: 8px;
+}
+/*==============================================
+ *  Calendar page
+===============================================*/
+.calendar-view .wrapp {
+  width: 450px;
+  height: 75%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.calendar-view p {
+  text-align: center;
+}
+.calendar-view flex-calendar {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.3);
+}
+.calendar-view .flex-calendar .month {
+  height: 120px;
+  line-height: 60px;
+  padding: 30px 0;
+  background: #007ec2;
+  /* Old Browsers */
+  background: -moz-linear-gradient(top, #007ec2 0%, #0abef5 50%, #007ec2 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #007ec2), color-stop(50%, #0abef5), color-stop(100%, #007ec2));
+  /* Chrome, Safari4+ */
+  background: -webkit-linear-gradient(top, #007ec2 0%, #0abef5 50%, #007ec2 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #007ec2 0%, #0abef5 50%, #007ec2 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #007ec2 0%, #0abef5 50%, #007ec2 100%);
+  /* IE 10+ */
+  background: linear-gradient(to bottom, #007ec2 0%, #0abef5 50%, #007ec2 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007ec2', endColorstr='#007ec2', GradientType=0);
+  /* IE6-9 */
+}
+.calendar-view .flex-calendar .week {
+  background-color: #ffffff;
+  color: #149eeb;
+  line-height: 30px;
+  padding: 10px 0;
+}
+.calendar-view .flex-calendar .days .day {
+  color: #000000;
+  font-weight: 600;
+  min-height: 40px;
+  line-height: 40px;
+}
+.calendar-view .flex-calendar .days .day.disabled .number {
+  background-image: none;
+}
+.calendar-view .flex-calendar .days .day.selected .number {
+  background-color: #149eeb;
+  border-radius: 2px;
+  background-image: none;
+}
+.calendar-view .flex-calendar .days .day.event {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.calendar-view .flex-calendar .days .day.event .number {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  line-height: 40px;
+  color: #006fdd;
+  border: 2px solid #4295e6;
+}
+.calendar-view .flex-calendar .days .day.event:before {
+  background: none;
+}
+.calendar-view .button-wrap {
+  margin: 5px;
+}
+.calendar-view .button.button-block {
+  padding: 0;
+  background-color: #ffffff;
+  color: #149eeb;
+  border-color: #149eeb;
+  border-width: 2px;
+  margin: 0;
+  line-height: 24px;
+}
+.calendar-view .set-button {
+  border-color: #ffffff;
+  background-color: #149eeb !important;
+  color: #ffffff !important;
+}
+.calendar-view .row {
+  background-color: #ededed;
+  padding: 10px 0;
+}
+.calendar-view .row .button.button-block.active {
+  background-color: #149eeb;
+  color: #ffffff;
+}
+/*=================================================
+ * Search style
+ *==================================================*/
+.search-view i.icon {
+  width: 30px;
+  font-size: 20px;
+}
+.search-view input[type=search] {
+  background: none;
+  width: 100%;
+}
+.searchBar {
+  color: #fff;
+  margin: 0 !important;
+  padding: 0;
+}
+.searchBar .icon {
+  font-size: 27px;
+  line-height: 1.2;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+.searchBar .searchTxt {
+  border-bottom: 1px solid #fff;
+  left: 55px;
+  width: calc(0%);
+  position: fixed;
+  height: calc(90%);
+}
+.searchBar.numicons2 .searchTxt {
+  width: calc(-35%);
+}
+.searchBar .searchTxt > .bgdiv {
+  background-color: #aaa;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.3;
+}
+.searchBar .searchTxt > .bgtxt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.searchBar .searchTxt input {
+  background-color: inherit;
+  color: #fff;
+  padding-left: 5px;
+  padding-right: 5px;
+}

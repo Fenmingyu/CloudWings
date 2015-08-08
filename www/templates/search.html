@@ -1,0 +1,13 @@
+<ion-view title="Search" hide-nav-bar="true" class="search-view">
+    <ion-header-bar align-title="left" class="bar-positive">
+        <ion-search placeholder="Search a user" filter="search"></ion-search>
+    </ion-header-bar>
+    <ion-content>
+
+        <div class="list">
+            <div ng-repeat="user in users | filter:search.value" class="item">
+                {{user.name}}
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
