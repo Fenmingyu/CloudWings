@@ -1,6 +1,6 @@
 /****
  * App.js
- * Main App Config file
+ * CloudWingsPro App
  ***/
 var TabSidemenuApp = angular.module('ionicApp', ['ionic', 'ionic.contrib.drawer', 'flexcalendar', 'pascalprecht.translate'])
 
