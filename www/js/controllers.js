@@ -1420,11 +1420,102 @@ TabSidemenuApp
             console.log('updateTime');
         }
     })
-    .controller('SearchCtrl',function($scope,User){
-        $scope.users = [];
-        User.getFirst(15).then(function(users){
-            $scope.users = users;
+    .controller('SearchCtrl',function($scope, $timeout, $ionicFilterBar){
+        var filterBarInstance;
+
+        function getItems () {
+            var items = [];
+            for (var x = 1; x < 2000; x++) {
+                items.push({text: 'This is item number ' + x + ' which is an ' + (x % 2 === 0 ? 'EVEN' : 'ODD') + ' number.'});
+            }
+            $scope.items = items;
+        }
+
+        getItems();
+
+        $scope.showFilterBar = function () {
+            filterBarInstance = $ionicFilterBar.show({
+                items: $scope.items,
+                update: function (filteredItems) {
+                    $scope.items = filteredItems;
+                }
+            });
+        };
+
+        $scope.refreshItems = function () {
+            if (filterBarInstance) {
+                filterBarInstance();
+                filterBarInstance = null;
+            }
+
+            $timeout(function () {
+                getItems();
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 1000);
+        };
+    })
+    .controller('ApiCtrl',function($scope,$ionicModal, $ionicPopup,$http,UserService){
+        //User info Modal
+        $ionicModal.fromTemplateUrl('templates/userinfo-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            $scope.modal = modal;
         });
+        $scope.openModal = function() {
+            $scope.modal.show();
+        };
+        $scope.closeModal = function() {
+            $scope.modal.hide();
+        };
+        //Cleanup the modal when we're done with it!
+        $scope.$on('$destroy', function() {
+            $scope.modal.remove();
+        });
+        // Execute action on hide modal
+        $scope.$on('modal.hidden', function() {
+            // Execute action
+        });
+        // Execute action on remove modal
+        $scope.$on('modal.removed', function() {
+            // Execute action
+        });
+
+        $scope.currentUser = UserService.get({user: 1});
+
+        var query = UserService.query();
+        query.$promise.then(function(data) {
+            $scope.users = data;
+            // Do whatever when the request is finished
+            console.log($scope.users);
+        });
+        $scope.setDataForUser = function(userID){
+            $scope.currentUser = UserService.get({user:userID});
+            $scope.openModal();
+        };
+        $scope.addUser = function(){
+            var data = {name: 'Saimonaaa', email: 'saimon@devdactic.com'};
+            $scope.showAlert(JSON.stringify(data));
+            UserService.save(data).then(function (result) {
+                $scope.showAlert(JSON.stringify(result));
+            });
+        };
+        $scope.updateUser = function(){
+            $scope.showAlert(JSON.stringify($scope.currentUser));
+            UserService.update({user: 1}, $scope.currentUser).then(function (result) {
+                $scope.showAlert(JSON.stringify(result));
+            });
+        };
+        // An alert dialog
+        $scope.showAlert = function(msg) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'API ALERT',
+                template: msg
+            });
+            alertPopup.then(function(res) {
+                console.log('Thank you for not eating my delicious ice cream cone');
+            });
+        };
 
     })
 ;

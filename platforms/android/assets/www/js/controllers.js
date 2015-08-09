@@ -1420,11 +1420,46 @@ TabSidemenuApp
             console.log('updateTime');
         }
     })
-    .controller('SearchCtrl',function($scope,User){
-        $scope.users = [];
-        User.getFirst(15).then(function(users){
-            $scope.users = users;
+    .controller('SearchCtrl',function($scope,User, $timeout, $ionicFilterBar){
+        /*
+        $scope.user_info = [];
+        User.getUserInfo($scope.search).then(function(result){//get user info that id=3
+            console.log(result);
+            $scope.user_info = result.data;
+            $scope.user_info.formatted_address = result.data.address.city + ' ' +result.data.address.street + ' ' + result.data.address.zipcode;
         });
+        */
+        var filterBarInstance;
 
+        function getItems () {
+            var items = [];
+            for (var x = 1; x < 2000; x++) {
+                items.push({text: 'This is item number ' + x + ' which is an ' + (x % 2 === 0 ? 'EVEN' : 'ODD') + ' number.'});
+            }
+            $scope.items = items;
+        }
+
+        getItems();
+
+        $scope.showFilterBar = function () {
+            filterBarInstance = $ionicFilterBar.show({
+                items: $scope.items,
+                update: function (filteredItems) {
+                    $scope.items = filteredItems;
+                }
+            });
+        };
+
+        $scope.refreshItems = function () {
+            if (filterBarInstance) {
+                filterBarInstance();
+                filterBarInstance = null;
+            }
+
+            $timeout(function () {
+                getItems();
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 1000);
+        };
     })
 ;
