@@ -1,3 +1,7 @@
+/****
+ * App.js
+ * Main App Config file
+ ***/
 var TabSidemenuApp = angular.module('ionicApp', ['ionic', 'ionic.contrib.drawer', 'flexcalendar', 'pascalprecht.translate'])
 
         .config(function ($stateProvider, $urlRouterProvider) {
