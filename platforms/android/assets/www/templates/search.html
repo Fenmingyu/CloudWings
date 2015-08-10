@@ -1,13 +1,29 @@
 <ion-view title="Search" hide-nav-bar="true" class="search-view">
-    <ion-header-bar align-title="left" class="bar-positive">
-        <ion-search placeholder="Search a user" filter="search"></ion-search>
+    <ion-header-bar align-title="center" class="bar-positive">
+        <!--
+        <ion-search placeholder="Search a user ID" filter="search"></ion-search>
+        -->
+        <button class="button button-icon button-clear ion-ios-filing-outline" ng-click="showMenu()">
+        </button>
+        <h1 class="title">Search</h1>
+        <div class="buttons">
+            <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()"></button>
+        </div>
+
     </ion-header-bar>
     <ion-content>
+        <ion-refresher pulling-icon="ion-arrow-down-b" on-refresh="refreshItems()">
+        </ion-refresher>
+        <ion-list>
+            <ion-item collection-repeat="item in items" >
+                <p>{{item.text}}</p>
+            </ion-item>
+        </ion-list>
 
-        <div class="list">
-            <div ng-repeat="user in users | filter:search.value" class="item">
-                {{user.name}}
-            </div>
+        <div ng-if="items !== undefined && !items.length" class="no-results">
+            <p>No Results</p>
         </div>
+
+
     </ion-content>
 </ion-view>

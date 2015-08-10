@@ -17,10 +17,6 @@ form .title,
 form .tips {
   color: #ffffff;
 }
-.bar .button.back-button {
-  width: 30px;
-  font-size: 24px;
-}
 .md-box input::-webkit-input-placeholder,
 .md-box textarea::-webkit-input-placeholder {
   color: #149eeb;
@@ -56,9 +52,18 @@ form .tips {
 .padding50 {
   padding-top: 50px;
 }
+.bar {
+  border-bottom: 0px solid;
+}
 .bar.bar-positive {
   background-color: #149eeb !important;
-  border: none;
+  border-color: #149eeb !important;
+  border: none !important;
+  border-width: 0 !important;
+}
+.bar.bar-positive .button.back-button {
+  width: 30px;
+  font-size: 24px;
 }
 .scroll-bar-indicator {
   display: none;
@@ -80,6 +85,21 @@ form .tips {
   font-size: 30px;
   min-width: 40px;
   color: #149eeb;
+}
+.modal .bar {
+  background-color: #149eeb;
+}
+.modal .bar .title {
+  color: #ffffff;
+}
+.modal .button {
+  background-color: #1182c2;
+  color: #ffffff;
+  border: 1px solid #149eeb;
+  border-radius: 8px;
+}
+.modal .button-wrap {
+  padding: 10px;
 }
 /*==============================================
  *  Right Side-menu style
@@ -172,10 +192,11 @@ form .tips {
   width: 100%;
   height: 120px;
   background: url("../img/login-bg.png") no-repeat 100% 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  background-position: center;
 }
 .login-view .forgot-lnk,
 .login-view .signup-lnk {
@@ -546,55 +567,53 @@ form .tips {
   background-color: #149eeb;
   color: #ffffff;
 }
-/*=================================================
- * Search style
+/*==================================================
+ * RestApi view style
  *==================================================*/
-.search-view i.icon {
-  width: 30px;
-  font-size: 20px;
+.restapi-view .button-wrap {
+  padding: 10px;
 }
-.search-view input[type=search] {
+.restapi-view .button-wrap .button {
+  background-color: #1182c2;
+  border: 1px solid #149eeb;
+  border-radius: 4px;
+}
+/*===============================================
+ * Fliker Search view style
+ *===============================================*/
+#search-input {
+  text-align: center;
+}
+#photos {
+  margin: auto;
+}
+.photo {
+  width: 100px !important;
+  height: 100px !important;
+  margin: 1px;
+  float: left;
+  overflow: hidden;
+}
+.photo img {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 150%;
+  max-height: 150%;
+}
+#search-bar {
   background: none;
-  width: 100%;
-}
-.searchBar {
-  color: #fff;
-  margin: 0 !important;
-  padding: 0;
-}
-.searchBar .icon {
-  font-size: 27px;
-  line-height: 1.2;
-  padding-right: 6px;
-  padding-left: 6px;
-}
-.searchBar .searchTxt {
-  border-bottom: 1px solid #fff;
-  left: 55px;
-  width: calc(0%);
-  position: fixed;
-  height: calc(90%);
-}
-.searchBar.numicons2 .searchTxt {
-  width: calc(-35%);
-}
-.searchBar .searchTxt > .bgdiv {
-  background-color: #aaa;
-  width: 100%;
-  height: 100%;
   position: absolute;
-  opacity: 0.3;
-}
-.searchBar .searchTxt > .bgtxt {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  top: 44px;
+  height: 40px;
+  z-index: 3;
 }
-.searchBar .searchTxt input {
-  background-color: inherit;
-  color: #fff;
-  padding-left: 5px;
-  padding-right: 5px;
+#search-bar .item {
+  background: none;
+  border: none;
+}
+#content {
+  top: 44px;
+  padding-top: 45px;
+  padding-bottom: 20px;
 }

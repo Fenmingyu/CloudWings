@@ -1,0 +1,52 @@
+<ion-view title="Rest Api" hide-nav-bar="true" class="restapi-view">
+    <ion-header-bar align-title="center" class="bar-positive">
+        <button class="button button-icon button-clear ion-ios-filing-outline" ng-click="showMenu()">
+        </button>
+        <h1 class="title">REST API</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="button-wrap">
+            <button class="button button-block" ng-click="addUser()">Add User</button>
+        </div>
+        <div class="item-divider">
+            <label class="item">User List</label>
+        </div>
+        <div>
+            <div class="row"  ng-repeat="user in users">
+                <div class="col col-40">
+                    <span>{{user.name}}</span>
+                </div>
+                <div class="col col-40">
+                    <span>{{user.email}}</span>
+                </div>
+                <div class="col col-20">
+                    <button class="button button-assertive" ng-click="setDataForUser(user.id)">Info</button>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>
+
+<!---
+<label class="item item-input">
+                <i class="icon ion-ios-person-outline placeholder-icon"></i>
+                <input type="text" placeholder="Username" ng-model="user_info.username">
+            </label>
+            <label class="item item-input">
+                <i class="icon ion-ios-email-outline placeholder-icon"></i>
+                <input type="text" placeholder="Email" ng-model="user_info.email">
+            </label>
+            <label class="item item-input">
+                <i class="icon ion-ios-telephone-outline placeholder-icon"></i>
+                <input type="text" placeholder="Phone" ng-model="user_info.phone">
+            </label>
+            <label class="item item-input">
+                <i class="icon ion-ios-world-outline placeholder-icon"></i>
+                <input type="text" placeholder="Website" ng-model="user_info.website">
+            </label>
+            <label class="item item-input">
+                <i class="icon ion-ios-location-outline placeholder-icon"></i>
+                <input type="text" placeholder="Address" ng-model="user_info.formatted_address">
+            </label>
+-->
