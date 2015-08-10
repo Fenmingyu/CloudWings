@@ -106,6 +106,24 @@ form {
   color: @light-blue;
 }
 
+.modal {
+  .bar{
+    background-color: @light-blue;
+    .title{
+      color: @white;
+    }
+  }
+  .button{
+    background-color: @dark-blue;
+    color: @white;
+    border: @border-thin solid @light-blue;
+    border-radius: @radius;
+  }
+  .button-wrap{
+    padding: @block-space;
+  }
+}
+
 /*==============================================
  *  Right Side-menu style
 ===============================================*/
@@ -591,7 +609,7 @@ form {
   }
 }
 
-/*=================================================
+/*==================================================
  * RestApi view style
  *==================================================*/
 .restapi-view{
@@ -599,6 +617,50 @@ form {
     padding: @block-space;
     .button{
       background-color: @dark-blue;
+      border: @border-thin solid @light-blue;
+      border-radius: @radius/2;
     }
   }
+}
+/*===============================================
+ * Fliker Search view style
+ *===============================================*/
+#search-input {
+  text-align: center;
+}
+
+#photos {
+  margin: auto;
+}
+
+.photo {
+  width: 100px !important;
+  height: 100px !important;
+  margin: 1px;
+  float: left;
+  overflow: hidden;
+}
+.photo img {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 150%;
+  max-height: 150%;
+}
+
+#search-bar {
+  background: none;
+  position: absolute;
+  width: 100%;
+  top: 44px;
+  height: 40px;
+  z-index: 3;
+}
+#search-bar .item {
+  background: none;
+  border: none;
+}
+#content {
+  top: 44px;
+  padding-top: 45px;
+  padding-bottom: 20px;
 }

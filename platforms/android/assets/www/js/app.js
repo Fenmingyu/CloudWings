@@ -2,7 +2,15 @@
  * App.js
  * Main App Config file
  ***/
-var TabSidemenuApp = angular.module('ionicApp', ['ionic', 'ionic.contrib.drawer', 'flexcalendar', 'pascalprecht.translate','jett.ionic.filter.bar','ngCordova'])
+var TabSidemenuApp = angular.module('ionicApp', [
+        'ionic',
+        'ionic.contrib.drawer',
+        'flexcalendar',
+        'pascalprecht.translate',
+        'jett.ionic.filter.bar',
+        'ngCordova',
+        'ngResource'
+    ])
 
         .config(function ($stateProvider, $urlRouterProvider, $ionicFilterBarConfigProvider) {
 
@@ -60,22 +68,6 @@ var TabSidemenuApp = angular.module('ionicApp', ['ionic', 'ionic.contrib.drawer'
                         }
                     }
                 })
-                .state('tabs.facts', {
-                    url: "/facts",
-                    views: {
-                        'home-tab': {
-                            templateUrl: "templates/facts.html"
-                        }
-                    }
-                })
-                .state('tabs.facts2', {
-                    url: "/facts2",
-                    views: {
-                        'home-tab': {
-                            templateUrl: "templates/facts2.html"
-                        }
-                    }
-                })
                 .state('tabs.about', {
                     url: "/about",
                     views: {
@@ -108,7 +100,39 @@ var TabSidemenuApp = angular.module('ionicApp', ['ionic', 'ionic.contrib.drawer'
                             templateUrl: "templates/messages.html"
                         }
                     }
-                });
+                })
+
+                .state('api', {
+                    url: '/api',
+                    templateUrl: 'templates/rest-api.html',
+                    controller: 'ApiCtrl'
+                })
+
+                .state('flickr', {
+                    url: '/flickr',
+                    templateUrl: 'templates/flickr-search.html',
+                    controller: 'FlickrCtrl'
+                })
+
+                //Temp states
+                .state('tabs.facts', {
+                    url: "/facts",
+                    views: {
+                        'home-tab': {
+                            templateUrl: "templates/facts.html"
+                        }
+                    }
+                })
+                .state('tabs.facts2', {
+                    url: "/facts2",
+                    views: {
+                        'home-tab': {
+                            templateUrl: "templates/facts2.html"
+                        }
+                    }
+                })
+
+            ;
 
 
             $urlRouterProvider.otherwise("/intro");
@@ -140,17 +164,8 @@ var TabSidemenuApp = angular.module('ionicApp', ['ionic', 'ionic.contrib.drawer'
             // remove back button text completely
             $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-back').previousTitleText(false);
         })
-
-        .constant('DB_CONFIG', {
-            name: 'DB',
-            tables: {
-                users: {
-                    id: 'integer primary key',
-                    name: 'text'
-                }
-            }
-        })
-        .factory('User', function($http) {
+        //Api Service part
+        .factory('API', function($http) { //Bad service
             var self = this;
 
             self.getUserInfo = function(id) {
@@ -170,47 +185,71 @@ var TabSidemenuApp = angular.module('ionicApp', ['ionic', 'ionic.contrib.drawer'
             };
             return self;
         })
-        .directive('ionSearch', function() {
-            return {
-                restrict: 'E',
-                replace: true,
-                scope: {
-                    getData: '&source',
-                    model: '=?',
-                    search: '=?filter'
-                },
-                link: function(scope, element, attrs) {
-                    attrs.minLength = attrs.minLength || 0;
-                    scope.placeholder = attrs.placeholder || '';
-                    scope.search = {value: ''};
-
-                    if (attrs.class)
-                        element.addClass(attrs.class);
-
-                    if (attrs.source) {
-                        scope.$watch('search.value', function (newValue, oldValue) {
-                            alert(newValue);
-                            if (newValue.length > attrs.minLength) {
-                                scope.getData({str: newValue}).then(function (results) {
-                                    scope.model = results;
-                                });
-                            } else {
-                                scope.model = [];
-                            }
-                        });
-                    }
-
-                    scope.clearSearch = function() {
-                        scope.search.value = '';
-                    };
-                },
-                template: '<div class="item-input-wrapper">' +
-                '<i class="icon ion-android-search placeholder-icon"></i>' +
-                '<input type="search" placeholder="{{placeholder}}" ng-model="search.value">' +
-                '<i ng-if="search.value.length > 0" ng-click="clearSearch()" class="icon ion-close"></i>' +
-                '</div>'
-            };
+        .factory('UserService', function ($resource) { // Using ngResource service ,good
+            var data = $resource('http://jsonplaceholder.typicode.com/users/:user', {user: '@user'}, {
+                update:{
+                    method:'PUT'
+                }
+            });
+            return data;
         })
+        //Fliker Search Part
+        .factory('Flickr', function($resource, $q) {
+            var photosPublic = $resource('http://api.flickr.com/services/feeds/photos_public.gne',
+                { format: 'json', jsoncallback: 'JSON_CALLBACK' },
+                { 'load': { 'method': 'JSONP' } });
+
+            return {
+                search: function(query) {
+                    var q = $q.defer();
+                    photosPublic.load({
+                        tags: query
+                    }, function(resp) {
+                        q.resolve(resp);
+                    }, function(err) {
+                        console.log(err);
+                        alert(JSON.stringify(err));
+                        q.reject(err);
+                    })
+
+                    return q.promise;
+                }
+            }
+        })
+
+
+
+        .directive('push-search', function() {
+            return {
+                restrict: 'A',
+                link: function($scope, $element, $attr) {
+                    var amt, st, header;
+
+                    $element.bind('scroll', function(e) {
+                        if(!header) {
+                            header = document.getElementById('search-bar');
+                        }
+                        st = e.detail.scrollTop;
+                        if(st < 0) {
+                            header.style.webkitTransform = 'translate3d(0, 0px, 0)';
+                        } else {
+                            header.style.webkitTransform = 'translate3d(0, ' + -st + 'px, 0)';
+                        }
+                    });
+                }
+            }
+        })
+
+        .directive('photo', function($window) {
+            return {
+                restrict: 'C',
+                link: function($scope, $element, $attr) {
+                    var size = ($window.outerWidth / 3) - 2;
+                    $element.css('width', size + 'px');
+                }
+            }
+        })
+        //iOS Keypad prevent bounce
         .run(function ($window, $ionicPlatform) {
             $ionicPlatform.ready(function () {
                 if ($window.cordova && $window.cordova.plugins.Keyboard) {

@@ -1496,15 +1496,11 @@ TabSidemenuApp
         $scope.addUser = function(){
             var data = {name: 'Saimonaaa', email: 'saimon@devdactic.com'};
             $scope.showAlert(JSON.stringify(data));
-            UserService.save(data).then(function (result) {
-                $scope.showAlert(JSON.stringify(result));
-            });
+            UserService.save(data);
         };
         $scope.updateUser = function(){
             $scope.showAlert(JSON.stringify($scope.currentUser));
-            UserService.update({user: 1}, $scope.currentUser).then(function (result) {
-                $scope.showAlert(JSON.stringify(result));
-            });
+            UserService.update({user: 1}, $scope.currentUser);
         };
         // An alert dialog
         $scope.showAlert = function(msg) {
@@ -1513,9 +1509,36 @@ TabSidemenuApp
                 template: msg
             });
             alertPopup.then(function(res) {
-                console.log('Thank you for not eating my delicious ice cream cone');
+                console.log(res);
             });
         };
 
+    })
+    .controller('FlickrCtrl', function($scope,$ionicPopup, Flickr) {
+
+        $scope.errorMsg = '';
+
+        var doSearch = ionic.debounce(function(query) {
+            $scope.errorMsg = 'Requesting ' + $scope.query + '... ';
+            Flickr.search(query).then(function(resp) {
+                $scope.photos = resp;
+                $scope.errorMsg = query+' : Success found.';
+            });
+        }, 500);
+
+        $scope.search = function() {
+            doSearch($scope.query);
+        }
+
+        // An alert dialog
+        $scope.showAlert = function(msg) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Flickr Message',
+                template: msg
+            });
+            alertPopup.then(function(res) {
+                console.log(res);
+            });
+        };
     })
 ;

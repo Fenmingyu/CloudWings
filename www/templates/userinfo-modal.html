@@ -1,4 +1,4 @@
-<ion-modal-view>
+<ion-modal-view class="modal-view">
     <ion-header-bar>
         <a class="button" ng-click="closeModal()">Cancel</a>
         <h1 class="title">User Information</h1>
@@ -21,6 +21,9 @@
                 <i class="icon ion-ios-world-outline placeholder-icon"></i>
                 <input type="text" placeholder="Website" ng-model="currentUser.website">
             </label>
+        </div>
+        <div class="button-wrap">
+            <button class="button button-block" ng-click="updateUser()">Update User</button>
         </div>
     </ion-content>
 </ion-modal-view>

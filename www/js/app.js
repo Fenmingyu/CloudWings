@@ -108,6 +108,12 @@ var TabSidemenuApp = angular.module('ionicApp', [
                     controller: 'ApiCtrl'
                 })
 
+                .state('flickr', {
+                    url: '/flickr',
+                    templateUrl: 'templates/flickr-search.html',
+                    controller: 'FlickrCtrl'
+                })
+
                 //Temp states
                 .state('tabs.facts', {
                     url: "/facts",
@@ -158,6 +164,7 @@ var TabSidemenuApp = angular.module('ionicApp', [
             // remove back button text completely
             $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-back').previousTitleText(false);
         })
+        //Api Service part
         .factory('API', function($http) { //Bad service
             var self = this;
 
@@ -186,6 +193,63 @@ var TabSidemenuApp = angular.module('ionicApp', [
             });
             return data;
         })
+        //Fliker Search Part
+        .factory('Flickr', function($resource, $q) {
+            var photosPublic = $resource('http://api.flickr.com/services/feeds/photos_public.gne',
+                { format: 'json', jsoncallback: 'JSON_CALLBACK' },
+                { 'load': { 'method': 'JSONP' } });
+
+            return {
+                search: function(query) {
+                    var q = $q.defer();
+                    photosPublic.load({
+                        tags: query
+                    }, function(resp) {
+                        q.resolve(resp);
+                    }, function(err) {
+                        console.log(err);
+                        alert(JSON.stringify(err));
+                        q.reject(err);
+                    })
+
+                    return q.promise;
+                }
+            }
+        })
+
+
+
+        .directive('push-search', function() {
+            return {
+                restrict: 'A',
+                link: function($scope, $element, $attr) {
+                    var amt, st, header;
+
+                    $element.bind('scroll', function(e) {
+                        if(!header) {
+                            header = document.getElementById('search-bar');
+                        }
+                        st = e.detail.scrollTop;
+                        if(st < 0) {
+                            header.style.webkitTransform = 'translate3d(0, 0px, 0)';
+                        } else {
+                            header.style.webkitTransform = 'translate3d(0, ' + -st + 'px, 0)';
+                        }
+                    });
+                }
+            }
+        })
+
+        .directive('photo', function($window) {
+            return {
+                restrict: 'C',
+                link: function($scope, $element, $attr) {
+                    var size = ($window.outerWidth / 3) - 2;
+                    $element.css('width', size + 'px');
+                }
+            }
+        })
+        //iOS Keypad prevent bounce
         .run(function ($window, $ionicPlatform) {
             $ionicPlatform.ready(function () {
                 if ($window.cordova && $window.cordova.plugins.Keyboard) {

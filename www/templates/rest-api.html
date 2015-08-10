@@ -5,6 +5,12 @@
         <h1 class="title">REST API</h1>
     </ion-header-bar>
     <ion-content>
+        <div class="button-wrap">
+            <button class="button button-block" ng-click="addUser()">Add User</button>
+        </div>
+        <div class="item-divider">
+            <label class="item">User List</label>
+        </div>
         <div>
             <div class="row"  ng-repeat="user in users">
                 <div class="col col-40">
@@ -18,10 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="button-wrap">
-            <button class="button button-block" ng-click="addUser()">Add User</button>
-            <button class="button button-block" ng-click="updateUser()">Update User</button>
-        </div>
+
     </ion-content>
 </ion-view>
 

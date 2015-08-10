@@ -86,6 +86,21 @@ form .tips {
   min-width: 40px;
   color: #149eeb;
 }
+.modal .bar {
+  background-color: #149eeb;
+}
+.modal .bar .title {
+  color: white;
+}
+.modal .button {
+  background-color: #1182c2;
+  color: white;
+  border: 1px solid #149eeb;
+  border-radius: 8px;
+}
+.modal .button-wrap {
+  padding: 10px;
+}
 /*==============================================
  *  Right Side-menu style
 ===============================================*/
@@ -552,7 +567,7 @@ form .tips {
   background-color: #149eeb;
   color: white;
 }
-/*=================================================
+/*==================================================
  * RestApi view style
  *==================================================*/
 .restapi-view .button-wrap {
@@ -560,4 +575,45 @@ form .tips {
 }
 .restapi-view .button-wrap .button {
   background-color: #1182c2;
+  border: 1px solid #149eeb;
+  border-radius: 4px;
+}
+/*===============================================
+ * Fliker Search view style
+ *===============================================*/
+#search-input {
+  text-align: center;
+}
+#photos {
+  margin: auto;
+}
+.photo {
+  width: 100px !important;
+  height: 100px !important;
+  margin: 1px;
+  float: left;
+  overflow: hidden;
+}
+.photo img {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 150%;
+  max-height: 150%;
+}
+#search-bar {
+  background: none;
+  position: absolute;
+  width: 100%;
+  top: 44px;
+  height: 40px;
+  z-index: 3;
+}
+#search-bar .item {
+  background: none;
+  border: none;
+}
+#content {
+  top: 44px;
+  padding-top: 45px;
+  padding-bottom: 20px;
 }
