@@ -170,27 +170,32 @@ TabSidemenuApp
                 icon: 'img/flags/United_States_of_America.png',
                 dial_code: "+1",
                 code: "US"
-            }, {
+            },
+            {
                 name: "Israel",
                 icon: 'img/flags/Israel.png',
                 dial_code: "+972",
                 code: "IL"
-            }, {
+            },
+            {
                 name: "Afghanistan",
                 icon: 'img/flags/Afghanistan.png',
                 dial_code: "+93",
                 code: "AF"
-            }, {
+            },
+            {
                 name: "Albania",
                 icon: 'img/flags/Albania.png',
                 dial_code: "+355",
                 code: "AL"
-            }, {
+            },
+            {
                 name: "Algeria",
                 icon: 'img/flags/Algeria.png',
                 dial_code: "+213",
                 code: "DZ"
-            }, {
+            },
+            {
                 name: "AmericanSamoa",
                 icon: 'img/flags/American_Samoa.png',
                 dial_code: "+1 684",
